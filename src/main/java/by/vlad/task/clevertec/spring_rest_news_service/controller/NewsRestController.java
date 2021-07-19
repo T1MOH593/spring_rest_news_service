@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -92,6 +93,7 @@ public class NewsRestController {
      */
     @PostMapping("/news")
     public NewsDto addNews(@RequestBody News news) {
+        news.setDate(LocalDate.now());
         return modelMapper.map(newsService.saveNews(news), NewsDto.class);
     }
 
@@ -101,6 +103,7 @@ public class NewsRestController {
      */
     @PutMapping("/news")
     public NewsDto updateNews(@RequestBody News news) {
+        news.setDate(LocalDate.now());
         return modelMapper.map(newsService.saveNews(news), NewsDto.class);
     }
 

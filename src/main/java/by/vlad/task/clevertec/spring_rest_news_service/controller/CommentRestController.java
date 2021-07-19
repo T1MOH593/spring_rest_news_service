@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -94,6 +95,7 @@ public class CommentRestController {
     @PostMapping("/comments")
     public CommentDto addComment(@PathVariable (value = "newsId") Integer newsId,
                                  @RequestBody Comment comment) {
+        comment.setDate(LocalDate.now());
         return newsService.getNewsById(newsId)
                 .map(news -> {
                     comment.setNews(news);
@@ -121,7 +123,7 @@ public class CommentRestController {
      * @param commentId is id of comment which we want to delete
      * @return the String result of deleting
      */
-    @DeleteMapping("comments/{commentId}")
+    @DeleteMapping("/comments/{commentId}")
     public ResponseEntity<String> deleteComment(@PathVariable(name = "newsId") Integer newsId,
                                 @PathVariable(name = "commentId") Integer commentId) {
         if (commentService.getComment(commentId).isEmpty()) {
@@ -131,5 +133,17 @@ public class CommentRestController {
             return new ResponseEntity<>("Comment with ID " + commentId + " was successfully deleted",
                     HttpStatus.NOT_FOUND) ;
         }
+    }
+
+    /**
+     * @param newsId id of wanted news
+     * @param comment is comment with id of updating comment
+     * @return updated comment in dto format
+     */
+    @PutMapping("/comments")
+    public CommentDto updateComment(@PathVariable(name = "newsId") Integer newsId,
+                                    Comment comment) {
+        comment.setDate(LocalDate.now());
+        return modelMapper.map(commentService.saveComment(comment), CommentDto.class);
     }
 }
