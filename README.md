@@ -9,6 +9,7 @@ Implemented API: - CRUD for news
                  - getting list of all news and all comments of specific news with pagination.
             
 Methods are linked to addresses according to REST approaches:
+
     GET /news   get all news
     POST /news   post title and text to add news; returns created entity
     PUT /news   post id, title and text to update entity with this id
