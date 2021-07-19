@@ -143,6 +143,9 @@ public class CommentRestController {
     @PutMapping("/comments")
     public CommentDto updateComment(@PathVariable(name = "newsId") Integer newsId,
                                     Comment comment) {
+        if (commentService.getComment(comment.getId()).isEmpty()) {
+            throw new NoSuchCommentException("There is no comments with ID = " + comment.getId());
+        }
         comment.setDate(LocalDate.now());
         return modelMapper.map(commentService.saveComment(comment), CommentDto.class);
     }

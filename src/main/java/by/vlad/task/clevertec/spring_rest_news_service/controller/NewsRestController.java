@@ -103,6 +103,9 @@ public class NewsRestController {
      */
     @PutMapping("/news")
     public NewsDto updateNews(@RequestBody News news) {
+        if (newsService.getNewsById(news.getId()).isEmpty()) {
+            throw new NoSuchNewsException("There is no news with ID = " + news.getId());
+        }
         news.setDate(LocalDate.now());
         return modelMapper.map(newsService.saveNews(news), NewsDto.class);
     }
