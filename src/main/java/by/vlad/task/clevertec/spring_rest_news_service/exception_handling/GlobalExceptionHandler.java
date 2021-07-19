@@ -6,18 +6,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class NewsGlobalExceptionHandler {
+public class GlobalExceptionHandler {
 
-    /**
-     * @param exception is handling exception throwing where client enters wrong ID
-     * @return error page with the message of exception and 404 status
-     */
     @ExceptionHandler
-    public ResponseEntity<IncorrectData> handleException(NoSuchNewsException exception) {
+    public ResponseEntity<IncorrectData> handleException(Exception exception) {
         var data = new IncorrectData();
         data.setInfo(exception.getMessage());
         return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
     }
-
-
 }
