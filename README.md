@@ -3,10 +3,11 @@ This is Test task in Clevertec. Task is to write RESTful web-service implementin
 news management system.
 
 Main entities: news and comments.
-Implemented API: - CRUD for news
-                 - CRUD for comments
-                 - sorting of news and comments in different parameters 
-                 - getting list of all news and all comments of specific news with pagination.
+Implemented API: 
+- CRUD for news    
+- CRUD for comments
+- sorting of news and comments in different parameters 
+- getting list of all news and all comments of specific news with pagination.
             
 Methods are linked to addresses according to REST approaches:
 
@@ -25,11 +26,18 @@ Methods are linked to addresses according to REST approaches:
 To run the project you should configure database setting in application.yml (set right user, password and url), and before this set up database PostgreSQL
     
 Project is building by Gradle 
+
 Implemented Exception Handling while client sends wrong data.
+
 Connecting to different databases is based on Spring Profiles. In memory H2 and outer PostgreSQL
+
 In test mode, tables are created and filled automatically. In production mode tables are created automatically without filling
+
 Service level covered by tests.
+
 Implemented aspect-style logging of called controller-level methods 
+
 Setting moved to application.yml
+
 Code is documented by JavaDoc.
     
