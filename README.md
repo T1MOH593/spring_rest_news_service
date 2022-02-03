@@ -40,4 +40,6 @@ Implemented aspect-style logging of called controller-level methods
 Setting moved to application.yml
 
 Code is documented by JavaDoc.
-    
+
+Task description is following:
+<embed src="Task.pdf" type="application/pdf">
