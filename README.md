@@ -42,4 +42,4 @@ Setting moved to application.yml
 Code is documented by JavaDoc.
 
 Task description is following:
-[embed]Task.pdf[/embed]
+https://docs.google.com/viewer?url=https://raw.githubusercontent.com/T1MOH593/task_clevertec/master/Task.pdf
