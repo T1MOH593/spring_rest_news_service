@@ -42,4 +42,4 @@ Setting moved to application.yml
 Code is documented by JavaDoc.
 
 Task description is following:
-<embed src="Task.pdf" type="application/pdf">
+[embed]Task.pdf[/embed]
